@@ -10,8 +10,8 @@
 #import "DetailViewController.h"
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
-#import "ContentService.h"
-#import "ModelUtil.h"
+#import "LibraryModel.h"
+#import "SVPullToRefresh.h"
 
 @interface MasterViewController ()
 
@@ -23,53 +23,14 @@
     [super awakeFromNib];
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-#if 0
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-#endif
     
-    //load articles from backend
-    [[ContentService instance] getArticles:Tech limit:20 success:^(NSArray *articles) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            
-            NSManagedObjectContext *moc = defaultManagedObjectContext();
-            int added = 0;
-            
-            for( NSDictionary *dict in articles)
-            {
-                //search the article in the db
-                //search by ID
-                //to improve it, could
-                //1. add index
-                //2. only search the latest news, like recent 8 hours, 4 hours.
-                NSString* _id = dict[@"_id"];
-                if(![MOArticle articleWithId:_id
-                      inManagedObjectContext:moc]) {
-                    //save the article to db
-                    [MOArticle insertArticleWithDictionary:dict inManagedObjectContext:moc];
-                    added++;
-                }
-            }
-            
-            //Save
-            NSError *error = nil;
-            if(![moc save:&error]) {
-                NSLog(@"Failed to save articles, %@, %@", error, error.localizedDescription);
-            }
-            NSLog(@"insert %d new articles", added);
-        });
-    } failure:^{
-        
+    [[LibraryModel instance] update:^{
+      //do nothing for now
     }];
-    
-    
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6FC6C400D3FFE9929C2397F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3B122CA48CA36789EBBEF3 /* libPods.a */; };
+		F6B619C119F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
+		F6B619C219F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6EC932F19F4D9E800AF4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC932E19F4D9E800AF4DEA /* main.m */; };
 		F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933119F4D9E800AF4DEA /* AppDelegate.m */; };
 		F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933319F4D9E800AF4DEA /* ZNews.xcdatamodeld */; };
@@ -41,6 +43,8 @@
 		0F70E5783BAF766EDB77527A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3C3B122CA48CA36789EBBEF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9235EFE27E52D51CA573F30D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F6B619BF19F5329B00072288 /* LibraryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryModel.h; sourceTree = "<group>"; };
+		F6B619C019F5329B00072288 /* LibraryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
 		F6EC932919F4D9E800AF4DEA /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EC932D19F4D9E800AF4DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6EC932E19F4D9E800AF4DEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +107,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F6B619BE19F5325000072288 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F6EC936619F4EB1600AF4DEA /* ContentService.h */,
+				F6EC936719F4EB1600AF4DEA /* ContentService.m */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
 		F6EC932019F4D9E800AF4DEA = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +139,7 @@
 		F6EC932B19F4D9E800AF4DEA /* ZNews */ = {
 			isa = PBXGroup;
 			children = (
-				F6EC936619F4EB1600AF4DEA /* ContentService.h */,
-				F6EC936719F4EB1600AF4DEA /* ContentService.m */,
+				F6B619BE19F5325000072288 /* service */,
 				F6EC935C19F4DEBC00AF4DEA /* model */,
 				F6EC933019F4D9E800AF4DEA /* AppDelegate.h */,
 				F6EC933119F4D9E800AF4DEA /* AppDelegate.m */,
@@ -178,6 +190,8 @@
 				F6EC935E19F4E16000AF4DEA /* ModelUtil.m */,
 				F6EC936219F4E41800AF4DEA /* MOArticle+Dao.h */,
 				F6EC936319F4E41800AF4DEA /* MOArticle+Dao.m */,
+				F6B619BF19F5329B00072288 /* LibraryModel.h */,
+				F6B619C019F5329B00072288 /* LibraryModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -335,6 +349,7 @@
 				F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */,
 				F6EC932F19F4D9E800AF4DEA /* main.m in Sources */,
 				F6EC936819F4EB1600AF4DEA /* ContentService.m in Sources */,
+				F6B619C119F5329B00072288 /* LibraryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6EC936019F4E16000AF4DEA /* ModelUtil.m in Sources */,
+				F6B619C219F5329B00072288 /* LibraryModel.m in Sources */,
 				F6EC936519F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
 				F6EC936919F4EB1600AF4DEA /* ContentService.m in Sources */,
 				F6EC935B19F4DEA800AF4DEA /* MOArticle.m in Sources */,
