@@ -11,7 +11,7 @@
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
-#import "SVPullToRefresh.h"
+//#import "SVPullToRefresh.h"
 
 @interface MasterViewController ()
 
@@ -27,9 +27,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[LibraryModel instance] update:^{
-      //do nothing for now
+#if 0
+    __weak UITableView *tv = self.tableView;
+    [tv addPullToRefreshWithActionHandler:^{
+        [[LibraryModel instance] update:^{
+            [tv.pullToRefreshView stopAnimating];
+        }];
     }];
+    [tv triggerPullToRefresh];
+#endif
+
+    [[LibraryModel instance] update:^{}];
 
 }
 

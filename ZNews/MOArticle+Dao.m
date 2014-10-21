@@ -10,8 +10,17 @@
 #import "ModelUtil.h"
 
 static NSString *ENTITY_NAME = @"Article";
+static NSDateFormatter* PUB_DATE_FORMATER = nil;
 
 @implementation MOArticle(Dao)
+
++ (void)initialize
+{
+    if(self == [MOArticle class]) {
+        PUB_DATE_FORMATER = [[NSDateFormatter alloc] init];
+        [PUB_DATE_FORMATER setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+    }
+}
 
 
 + (MOArticle *)insertArticleWithDictionary:(NSDictionary *)dict
@@ -29,7 +38,7 @@ static NSString *ENTITY_NAME = @"Article";
         article.publisher = dict[@"publisher"];
         NSString* pubDate = dict[@"creationDate"];
         //parse the date
-        article.pubDate = [NSDate date];
+        article.pubDate = [PUB_DATE_FORMATER dateFromString:pubDate];
     }
     return article;
 }
