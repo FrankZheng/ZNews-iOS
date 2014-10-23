@@ -40,6 +40,20 @@ defaultManagedObjectContext(void)
     return moc;
 }
 
+NSManagedObjectContext *
+createBackgroundContext(void)
+{
+    NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    [moc performBlock:^{
+        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
+        moc.parentContext = defaultManagedObjectContext();
+        moc.undoManager = nil;
+    }];
+    return moc;
+}
+
+
+
 BOOL
 commitDefaultMOC(void)
 {

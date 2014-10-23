@@ -114,6 +114,14 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    static NSDateFormatter *df = nil;
+    if(df == nil)
+    {
+        df = [[NSDateFormatter alloc] init];
+        [df setTimeStyle:NSDateFormatterFullStyle];
+        //[df setDateStyle:NSDateFormatterFullStyle];
+    }
+    //cell.textLabel.text = [NSString stringWithFormat:@"[%@]%@", [df stringFromDate:article.pubDate], article.title];
     cell.textLabel.text = article.title;
 }
 

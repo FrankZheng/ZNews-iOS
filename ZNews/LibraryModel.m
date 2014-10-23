@@ -27,8 +27,7 @@
 
 -(void)update:(void(^)())completeBlock
 {
-    void(^successBlock)(NSArray *articles)  = ^(NSArray *articles){
-        NSManagedObjectContext *moc = defaultManagedObjectContext();
+    void(^successBlock)(NSArray *articles, NSManagedObjectContext *moc)  = ^(NSArray *articles, NSManagedObjectContext *moc){
         int added = 0;
         
         for( NSDictionary *dict in articles)
@@ -57,18 +56,10 @@
     };
     
     [[ContentService instance] getArticles:Tech limit:20 success:^(NSArray *articles) {
-#if 0
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            successBlock(articles);
-        });
-#else
-        successBlock(articles);
-#endif
+        successBlock(articles, defaultManagedObjectContext());
     } failure:^{
         completeBlock();
     }];
-
-    
 }
 
 @end

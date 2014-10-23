@@ -28,6 +28,9 @@
 NSManagedObjectContext *
 defaultManagedObjectContext(void);
 
+NSManagedObjectContext *
+createBackgroundContext(void);
+
 BOOL
 commitDefaultMOC(void);
 

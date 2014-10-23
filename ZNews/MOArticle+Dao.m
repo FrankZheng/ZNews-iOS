@@ -36,7 +36,7 @@ static NSDateFormatter* PUB_DATE_FORMATER = nil;
         article.link = dict[@"link"];
         article.thumb = dict[@"thumb"];
         article.publisher = dict[@"publisher"];
-        NSString* pubDate = dict[@"creationDate"];
+        NSString* pubDate = dict[@"pubDate"];
         //parse the date
         article.pubDate = [PUB_DATE_FORMATER dateFromString:pubDate];
     }
