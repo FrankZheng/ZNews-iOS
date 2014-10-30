@@ -121,8 +121,9 @@
         [df setTimeStyle:NSDateFormatterFullStyle];
         //[df setDateStyle:NSDateFormatterFullStyle];
     }
-    //cell.textLabel.text = [NSString stringWithFormat:@"[%@]%@", [df stringFromDate:article.pubDate], article.title];
+    //cell.textLabel.text =
     cell.textLabel.text = article.title;
+    cell.detailTextLabel.text = [df stringFromDate:article.pubDate];
 }
 
 #pragma mark - Fetched results controller
