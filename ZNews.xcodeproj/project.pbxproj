@@ -13,7 +13,7 @@
 		F6EC932F19F4D9E800AF4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC932E19F4D9E800AF4DEA /* main.m */; };
 		F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933119F4D9E800AF4DEA /* AppDelegate.m */; };
 		F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933319F4D9E800AF4DEA /* ZNews.xcdatamodeld */; };
-		F6EC933819F4D9E800AF4DEA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933719F4D9E800AF4DEA /* MasterViewController.m */; };
+		F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */; };
 		F6EC933B19F4D9E800AF4DEA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */; };
 		F6EC933E19F4D9E800AF4DEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6EC933C19F4D9E800AF4DEA /* Main.storyboard */; };
 		F6EC934019F4D9E800AF4DEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6EC933F19F4D9E800AF4DEA /* Images.xcassets */; };
@@ -51,8 +51,8 @@
 		F6EC933019F4D9E800AF4DEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F6EC933119F4D9E800AF4DEA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F6EC933419F4D9E800AF4DEA /* ZNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZNews.xcdatamodel; sourceTree = "<group>"; };
-		F6EC933619F4D9E800AF4DEA /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		F6EC933719F4D9E800AF4DEA /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		F6EC933619F4D9E800AF4DEA /* NewsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
+		F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		F6EC933919F4D9E800AF4DEA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F6EC933D19F4D9E800AF4DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 				F6EC935C19F4DEBC00AF4DEA /* model */,
 				F6EC933019F4D9E800AF4DEA /* AppDelegate.h */,
 				F6EC933119F4D9E800AF4DEA /* AppDelegate.m */,
-				F6EC933619F4D9E800AF4DEA /* MasterViewController.h */,
-				F6EC933719F4D9E800AF4DEA /* MasterViewController.m */,
+				F6EC933619F4D9E800AF4DEA /* NewsListViewController.h */,
+				F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */,
 				F6EC933919F4D9E800AF4DEA /* DetailViewController.h */,
 				F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */,
 				F6EC933C19F4D9E800AF4DEA /* Main.storyboard */,
@@ -342,7 +342,7 @@
 			files = (
 				F6EC933B19F4D9E800AF4DEA /* DetailViewController.m in Sources */,
 				F6EC936419F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
-				F6EC933819F4D9E800AF4DEA /* MasterViewController.m in Sources */,
+				F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */,
 				F6EC935A19F4DEA800AF4DEA /* MOArticle.m in Sources */,
 				F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */,
 				F6EC935F19F4E16000AF4DEA /* ModelUtil.m in Sources */,

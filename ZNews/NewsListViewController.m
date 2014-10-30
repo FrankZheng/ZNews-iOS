@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 xzheng. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "NewsListViewController.h"
 #import "DetailViewController.h"
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
 //#import "SVPullToRefresh.h"
 
-@interface MasterViewController ()
+@interface NewsListViewController ()
 
 @end
 
-@implementation MasterViewController
+@implementation NewsListViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];

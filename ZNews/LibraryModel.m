@@ -25,9 +25,10 @@
     return _instance;
 }
 
--(void)update:(void(^)())completeBlock
+- (void)updateNewsList:(NSArray *)articles completionBlock:(void(^)())block
 {
-    void(^successBlock)(NSArray *articles, NSManagedObjectContext *moc)  = ^(NSArray *articles, NSManagedObjectContext *moc){
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSManagedObjectContext *moc = createBackgroundContext();
         int added = 0;
         
         for( NSDictionary *dict in articles)
@@ -52,13 +53,15 @@
             NSLog(@"Failed to save articles, %@, %@", error, error.localizedDescription);
         }
         NSLog(@"insert %d new articles", added);
-        completeBlock();
-    };
-    
+    });
+}
+
+- (void)update:(void(^)())completionBlock
+{
     [[ContentService instance] getArticles:Tech limit:20 success:^(NSArray *articles) {
-        successBlock(articles, defaultManagedObjectContext());
+        [self updateNewsList:articles completionBlock:completionBlock];
     } failure:^{
-        completeBlock();
+        completionBlock();
     }];
 }
 

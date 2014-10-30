@@ -12,6 +12,6 @@
 
 +(instancetype)instance;
 
--(void)update:(void(^)())completeBlock;
+-(void)update:(void(^)())completionBlock;
 
 @end
