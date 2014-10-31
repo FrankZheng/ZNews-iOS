@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MOArticle.h"
 
-@interface DetailViewController : UIViewController
+@interface NewsViewController : UIViewController
 
 @property (strong, nonatomic) MOArticle *detailItem;
 

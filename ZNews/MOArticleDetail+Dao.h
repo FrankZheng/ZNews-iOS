@@ -12,7 +12,8 @@
 @interface MOArticleDetail(Dao)
 
 +(MOArticleDetail *)insertArticleDetailWithDictionary:(NSDictionary *)data
-                               inManagedObjectContext:(NSManagedObjectContext *)moc;
+                               inManagedObjectContext:(NSManagedObjectContext *)moc
+                                     relatedToArticle:(MOArticle *)article;
 
 
 

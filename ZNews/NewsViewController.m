@@ -6,18 +6,19 @@
 //  Copyright (c) 2014 xzheng. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "NewsViewController.h"
 #import "ContentService.h"
 #import "MOArticleDetail+Dao.h"
 #import "ModelUtil.h"
 
-@interface DetailViewController ()
+@interface NewsViewController ()
 @property(nonatomic, strong) UITextView *detailView;
+
 - (void)configView;
 
 @end
 
-@implementation DetailViewController
+@implementation NewsViewController
 
 #pragma mark - Managing the detail item
 
@@ -32,8 +33,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    if(self.detailView == nil) {
+    
+    if(self.detailView == nil)
+    {
         self.detailView = [[UITextView alloc] initWithFrame:self.view.bounds];
         self.detailView.font = [UIFont systemFontOfSize:16];
         self.detailView.editable = NO;
@@ -61,19 +63,15 @@
             [[ContentService instance] getArticleDetail:self.detailItem sucess:^(NSDictionary *data) {
                 //insert article detail to db
                 MOArticleDetail *detail = [MOArticleDetail insertArticleDetailWithDictionary:data
-                                                                       inManagedObjectContext:defaultManagedObjectContext()];
-                
-                //setup relationships
-                self.detailItem.detail = detail;
-                detail.article = self.detailItem;
+                                                                       inManagedObjectContext:defaultManagedObjectContext()
+                                                                            relatedToArticle:self.detailItem];
                 
                 //save the changes
                 commitDefaultMOC();
                 
-                self.detailView.text = self.detailItem.detail.text;
+                self.detailView.text = detail.text;
                 
             } failure:^{
-                //
                 self.detailView.text = @"Unable to load the article text.";
             }];
         }

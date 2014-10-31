@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
+#import "NewsViewController.h"
 #import "NewsListViewController.h"
 
 @interface AppDelegate ()

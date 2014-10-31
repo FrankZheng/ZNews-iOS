@@ -7,7 +7,7 @@
 //
 
 #import "NewsListViewController.h"
-#import "DetailViewController.h"
+#import "NewsViewController.h"
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"

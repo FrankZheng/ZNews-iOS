@@ -16,7 +16,7 @@
 		F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933119F4D9E800AF4DEA /* AppDelegate.m */; };
 		F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933319F4D9E800AF4DEA /* ZNews.xcdatamodeld */; };
 		F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */; };
-		F6EC933B19F4D9E800AF4DEA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */; };
+		F6EC933B19F4D9E800AF4DEA /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933A19F4D9E800AF4DEA /* NewsViewController.m */; };
 		F6EC933E19F4D9E800AF4DEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6EC933C19F4D9E800AF4DEA /* Main.storyboard */; };
 		F6EC934019F4D9E800AF4DEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6EC933F19F4D9E800AF4DEA /* Images.xcassets */; };
 		F6EC934319F4D9E900AF4DEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EC934119F4D9E900AF4DEA /* LaunchScreen.xib */; };
@@ -59,8 +59,8 @@
 		F6EC933419F4D9E800AF4DEA /* ZNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZNews.xcdatamodel; sourceTree = "<group>"; };
 		F6EC933619F4D9E800AF4DEA /* NewsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
-		F6EC933919F4D9E800AF4DEA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		F6EC933919F4D9E800AF4DEA /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		F6EC933A19F4D9E800AF4DEA /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		F6EC933D19F4D9E800AF4DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6EC933F19F4D9E800AF4DEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F6EC934219F4D9E900AF4DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 				F6EC933119F4D9E800AF4DEA /* AppDelegate.m */,
 				F6EC933619F4D9E800AF4DEA /* NewsListViewController.h */,
 				F6EC933719F4D9E800AF4DEA /* NewsListViewController.m */,
-				F6EC933919F4D9E800AF4DEA /* DetailViewController.h */,
-				F6EC933A19F4D9E800AF4DEA /* DetailViewController.m */,
+				F6EC933919F4D9E800AF4DEA /* NewsViewController.h */,
+				F6EC933A19F4D9E800AF4DEA /* NewsViewController.m */,
 				F6EC933C19F4D9E800AF4DEA /* Main.storyboard */,
 				F6EC933F19F4D9E800AF4DEA /* Images.xcassets */,
 				F6EC934119F4D9E900AF4DEA /* LaunchScreen.xib */,
@@ -196,10 +196,10 @@
 				F6EC935E19F4E16000AF4DEA /* ModelUtil.m */,
 				F6EC936219F4E41800AF4DEA /* MOArticle+Dao.h */,
 				F6EC936319F4E41800AF4DEA /* MOArticle+Dao.m */,
-				F6B619BF19F5329B00072288 /* LibraryModel.h */,
-				F6B619C019F5329B00072288 /* LibraryModel.m */,
 				F62CC01E1A0332ED00B10AD8 /* MOArticleDetail+Dao.h */,
 				F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */,
+				F6B619BF19F5329B00072288 /* LibraryModel.h */,
+				F6B619C019F5329B00072288 /* LibraryModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6EC933B19F4D9E800AF4DEA /* DetailViewController.m in Sources */,
+				F6EC933B19F4D9E800AF4DEA /* NewsViewController.m in Sources */,
 				F6EC936419F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
 				F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */,
 				F6EC935A19F4DEA800AF4DEA /* MOArticle.m in Sources */,
