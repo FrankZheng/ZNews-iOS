@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class MOArticle;
+
 typedef NS_ENUM(NSInteger, Topic)
 {
     All,
@@ -19,10 +21,14 @@ typedef NS_ENUM(NSInteger, Topic)
 
 @interface ContentService : NSObject
 
--(void)getArticles:(Topic)topic
+- (void)getArticles:(Topic)topic
              limit:(NSInteger)limit
            success:(void(^)(NSArray *articles))successBlock
             failure:(void(^)())failureBlock;
+
+- (void)getArticleDetail:(MOArticle *)article
+                  sucess:(void(^)(NSDictionary *data))success
+                 failure:(void(^)())failure;
 
 +(instancetype) instance;
 

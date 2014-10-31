@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6FC6C400D3FFE9929C2397F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3B122CA48CA36789EBBEF3 /* libPods.a */; };
+		F62CC01D1A032FF600B10AD8 /* MOArticleDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CC01C1A032FF600B10AD8 /* MOArticleDetail.m */; };
+		F62CC0201A0332ED00B10AD8 /* MOArticleDetail+Dao.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */; };
 		F6B619C119F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6B619C219F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6EC932F19F4D9E800AF4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC932E19F4D9E800AF4DEA /* main.m */; };
@@ -43,6 +45,10 @@
 		0F70E5783BAF766EDB77527A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3C3B122CA48CA36789EBBEF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9235EFE27E52D51CA573F30D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F62CC01B1A032FF600B10AD8 /* MOArticleDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOArticleDetail.h; sourceTree = "<group>"; };
+		F62CC01C1A032FF600B10AD8 /* MOArticleDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOArticleDetail.m; sourceTree = "<group>"; };
+		F62CC01E1A0332ED00B10AD8 /* MOArticleDetail+Dao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MOArticleDetail+Dao.h"; sourceTree = "<group>"; };
+		F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MOArticleDetail+Dao.m"; sourceTree = "<group>"; };
 		F6B619BF19F5329B00072288 /* LibraryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryModel.h; sourceTree = "<group>"; };
 		F6B619C019F5329B00072288 /* LibraryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
 		F6EC932919F4D9E800AF4DEA /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +198,8 @@
 				F6EC936319F4E41800AF4DEA /* MOArticle+Dao.m */,
 				F6B619BF19F5329B00072288 /* LibraryModel.h */,
 				F6B619C019F5329B00072288 /* LibraryModel.m */,
+				F62CC01E1A0332ED00B10AD8 /* MOArticleDetail+Dao.h */,
+				F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -201,6 +209,8 @@
 			children = (
 				F6EC935819F4DEA800AF4DEA /* MOArticle.h */,
 				F6EC935919F4DEA800AF4DEA /* MOArticle.m */,
+				F62CC01B1A032FF600B10AD8 /* MOArticleDetail.h */,
+				F62CC01C1A032FF600B10AD8 /* MOArticleDetail.m */,
 			);
 			name = "Managed Objects";
 			sourceTree = "<group>";
@@ -350,6 +360,8 @@
 				F6EC932F19F4D9E800AF4DEA /* main.m in Sources */,
 				F6EC936819F4EB1600AF4DEA /* ContentService.m in Sources */,
 				F6B619C119F5329B00072288 /* LibraryModel.m in Sources */,
+				F62CC0201A0332ED00B10AD8 /* MOArticleDetail+Dao.m in Sources */,
+				F62CC01D1A032FF600B10AD8 /* MOArticleDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

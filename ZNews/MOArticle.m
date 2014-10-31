@@ -19,5 +19,6 @@
 @dynamic pubDate;
 @dynamic publisher;
 @dynamic thumb;
+@dynamic detail;
 
 @end

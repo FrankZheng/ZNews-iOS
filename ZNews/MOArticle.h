@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "MOArticleDetail.h"
 
 
 @interface MOArticle : NSManagedObject
@@ -20,5 +21,6 @@
 @property (nonatomic, retain) NSDate * pubDate;
 @property (nonatomic, retain) NSString * publisher;
 @property (nonatomic, retain) NSString * thumb;
+@property (nonatomic, retain) MOArticleDetail *detail;
 
 @end

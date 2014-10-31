@@ -42,19 +42,7 @@
     
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject isKindOfClass:[NSArray class]]) {
-#if 0
-            NSArray *array = (NSArray*)responseObject;
-            NSMutableArray *articles = [[NSMutableArray alloc] initWithCapacity:array.count];
-            
-            for(NSDictionary* elem in array) {
-                NSLog(@"article is %@", elem);
-                MOArticle *article = [[MOArticle alloc] initWithDictionary:elem];
-                [articles addObject:article];
-            }
-            //callback with the articles
-#else
             NSArray* articles = (NSArray*)responseObject;
-#endif
             successBlock(articles);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -62,6 +50,25 @@
         failureBlock();
     }];
 }
+
+- (void)getArticleDetail:(MOArticle *)article
+                  sucess:(void(^)(NSDictionary *data))success
+                 failure:(void(^)())failure
+{
+    AFHTTPRequestOperationManager *manager = [self createRequestManager];
+    NSString *url = [NSString stringWithFormat:@"http://xnewsreader.herokuapp.com/article/%@", article.id];
+    NSDictionary* params =@{@"output" : @"json"};
+    [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary* data = (NSDictionary*)responseObject;
+            success(data);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+        failure();
+    }];
+}
+
 
 +(instancetype) instance
 {
