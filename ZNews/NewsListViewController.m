@@ -12,6 +12,7 @@
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
 //#import "SVPullToRefresh.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface NewsListViewController ()
 
@@ -94,7 +95,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,18 +113,41 @@
     }
 }
 
+- (NSString *)encodeQueryParamterPair:(NSString *)key value:(NSString *)value
+{
+    NSString *escapedString = [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    return [NSString stringWithFormat:@"%@=%@", key, escapedString];
+}
+
+- (void)loadThumbnail:(MOArticle *)article toView:(UIImageView *)imageView
+{
+    NSString *thumbUrl = [NSString stringWithFormat:@"http://xnewsreader.herokuapp.com/thumb?%@",
+                          [self encodeQueryParamterPair:@"thumburl" value:article.thumb]];
+    [imageView setImageWithURL:[NSURL URLWithString:thumbUrl]];
+}
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
     static NSDateFormatter *df = nil;
     if(df == nil)
     {
         df = [[NSDateFormatter alloc] init];
-        [df setTimeStyle:NSDateFormatterFullStyle];
-        //[df setDateStyle:NSDateFormatterFullStyle];
+        
     }
-    //cell.textLabel.text =
-    cell.textLabel.text = article.title;
-    cell.detailTextLabel.text = [df stringFromDate:article.pubDate];
+    if([[NSCalendar currentCalendar] isDateInToday:article.pubDate])
+    {
+        [df setDateFormat:@"HH:mm:ss"];
+    }
+    else
+    {
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    }
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
+    titleLabel.text = article.title;
+    UILabel *dateLabel = (UILabel*)[cell viewWithTag:101];
+    dateLabel.text = [df stringFromDate:article.pubDate];
+    UIImageView *thumbView = (UIImageView *)[cell viewWithTag:102];
+    [self loadThumbnail:article toView:thumbView];
 }
 
 #pragma mark - Fetched results controller
