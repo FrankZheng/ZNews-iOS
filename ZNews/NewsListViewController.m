@@ -123,7 +123,8 @@
 {
     NSString *thumbUrl = [NSString stringWithFormat:@"http://xnewsreader.herokuapp.com/thumb?%@",
                           [self encodeQueryParamterPair:@"thumburl" value:article.thumb]];
-    [imageView setImageWithURL:[NSURL URLWithString:thumbUrl]];
+    [imageView setImageWithURL:[NSURL URLWithString:thumbUrl]
+     placeholderImage:[UIImage imageNamed:@"thumb_placeholder"]];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

@@ -58,7 +58,7 @@
 
 - (void)update:(void(^)())completionBlock
 {
-    [[ContentService instance] getArticles:Tech limit:20 success:^(NSArray *articles) {
+    [[ContentService instance] getArticles:Tech limit:50 success:^(NSArray *articles) {
         [self updateNewsList:articles completionBlock:completionBlock];
     } failure:^{
         completionBlock();
