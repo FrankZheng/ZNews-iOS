@@ -12,6 +12,7 @@
 		F62CC0201A0332ED00B10AD8 /* MOArticleDetail+Dao.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */; };
 		F6B619C119F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6B619C219F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
+		F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */; };
 		F6EC932F19F4D9E800AF4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC932E19F4D9E800AF4DEA /* main.m */; };
 		F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933119F4D9E800AF4DEA /* AppDelegate.m */; };
 		F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933319F4D9E800AF4DEA /* ZNews.xcdatamodeld */; };
@@ -51,6 +52,8 @@
 		F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MOArticleDetail+Dao.m"; sourceTree = "<group>"; };
 		F6B619BF19F5329B00072288 /* LibraryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryModel.h; sourceTree = "<group>"; };
 		F6B619C019F5329B00072288 /* LibraryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
+		F6BF1E2B1A04EA6C00E7A5AD /* NSString+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+utility.h"; sourceTree = "<group>"; };
+		F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+utility.m"; sourceTree = "<group>"; };
 		F6EC932919F4D9E800AF4DEA /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EC932D19F4D9E800AF4DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6EC932E19F4D9E800AF4DEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +125,15 @@
 			name = service;
 			sourceTree = "<group>";
 		};
+		F6BF1E2A1A04EA4900E7A5AD /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				F6BF1E2B1A04EA6C00E7A5AD /* NSString+utility.h */,
+				F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
 		F6EC932019F4D9E800AF4DEA = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 		F6EC932B19F4D9E800AF4DEA /* ZNews */ = {
 			isa = PBXGroup;
 			children = (
+				F6BF1E2A1A04EA4900E7A5AD /* utility */,
 				F6B619BE19F5325000072288 /* service */,
 				F6EC935C19F4DEBC00AF4DEA /* model */,
 				F6EC933019F4D9E800AF4DEA /* AppDelegate.h */,
@@ -354,6 +367,7 @@
 				F6EC936419F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
 				F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */,
 				F6EC935A19F4DEA800AF4DEA /* MOArticle.m in Sources */,
+				F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */,
 				F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */,
 				F6EC935F19F4E16000AF4DEA /* ModelUtil.m in Sources */,
 				F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */,

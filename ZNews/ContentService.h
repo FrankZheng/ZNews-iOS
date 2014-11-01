@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 dps. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class MOArticle;
 
@@ -29,6 +29,8 @@ typedef NS_ENUM(NSInteger, Topic)
 - (void)getArticleDetail:(MOArticle *)article
                   sucess:(void(^)(NSDictionary *data))success
                  failure:(void(^)())failure;
+
+- (void)loadArticleThumbnail:(MOArticle *)article toImageView:(UIImageView *)imageView;
 
 +(instancetype) instance;
 

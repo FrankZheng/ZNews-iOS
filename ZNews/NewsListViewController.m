@@ -12,7 +12,7 @@
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
 //#import "SVPullToRefresh.h"
-#import "UIImageView+AFNetworking.h"
+#import "ContentService.h"
 
 @interface NewsListViewController ()
 
@@ -113,20 +113,6 @@
     }
 }
 
-- (NSString *)encodeQueryParamterPair:(NSString *)key value:(NSString *)value
-{
-    NSString *escapedString = [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    return [NSString stringWithFormat:@"%@=%@", key, escapedString];
-}
-
-- (void)loadThumbnail:(MOArticle *)article toView:(UIImageView *)imageView
-{
-    NSString *thumbUrl = [NSString stringWithFormat:@"http://xnewsreader.herokuapp.com/thumb?%@",
-                          [self encodeQueryParamterPair:@"thumburl" value:article.thumb]];
-    [imageView setImageWithURL:[NSURL URLWithString:thumbUrl]
-     placeholderImage:[UIImage imageNamed:@"thumb_placeholder"]];
-}
-
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
     static NSDateFormatter *df = nil;
@@ -148,7 +134,7 @@
     UILabel *dateLabel = (UILabel*)[cell viewWithTag:101];
     dateLabel.text = [df stringFromDate:article.pubDate];
     UIImageView *thumbView = (UIImageView *)[cell viewWithTag:102];
-    [self loadThumbnail:article toView:thumbView];
+    [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
 }
 
 #pragma mark - Fetched results controller

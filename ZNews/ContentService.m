@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation ContentService
 -(NSString*)getTopicQueryValue:(Topic)topic
@@ -67,6 +68,20 @@
         NSLog(@"%@", error.localizedDescription);
         failure();
     }];
+}
+
+- (NSString *)encodeQueryParamterPair:(NSString *)key value:(NSString *)value
+{
+    NSString *escapedString = [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    return [NSString stringWithFormat:@"%@=%@", key, escapedString];
+}
+
+- (void)loadArticleThumbnail:(MOArticle *)article toImageView:(UIImageView *)imageView
+{
+    NSString *thumbUrl = [NSString stringWithFormat:@"http://xnewsreader.herokuapp.com/thumb?%@",
+                          [self encodeQueryParamterPair:@"thumburl" value:article.thumb]];
+    [imageView setImageWithURL:[NSURL URLWithString:thumbUrl]
+              placeholderImage:[UIImage imageNamed:@"thumb_placeholder"]];
 }
 
 
