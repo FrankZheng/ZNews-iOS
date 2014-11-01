@@ -25,7 +25,7 @@
     return _instance;
 }
 
-- (void)updateNewsList:(NSArray *)articles completionBlock:(void(^)())block
+- (void)updateNewsList:(NSArray *)articles completionBlock:(void(^)())completionBlock
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSManagedObjectContext *moc = createBackgroundContext();
@@ -53,6 +53,7 @@
             NSLog(@"Failed to save articles, %@, %@", error, error.localizedDescription);
         }
         NSLog(@"insert %d new articles", added);
+        completionBlock();
     });
 }
 

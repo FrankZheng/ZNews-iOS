@@ -11,10 +11,14 @@
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
-//#import "SVPullToRefresh.h"
 #import "ContentService.h"
 
+#define kCellTitileViewTag  100
+#define kCellDateViewTag    101
+#define kCellImageViewTag   102
+
 @interface NewsListViewController ()
+@property(nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -24,22 +28,28 @@
     [super awakeFromNib];
 }
 
+- (IBAction)refreshTable:(id)sender {
+    [[LibraryModel instance] update:^{
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void) triggerRefreshAndUpdate {
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
+    [self.refreshControl beginRefreshing];
+    [self refreshTable:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#if 0
-    __weak UITableView *tv = self.tableView;
-    [tv addPullToRefreshWithActionHandler:^{
-        [[LibraryModel instance] update:^{
-            [tv.pullToRefreshView stopAnimating];
-        }];
-    }];
-    [tv triggerPullToRefresh];
-#endif
-
-    [[LibraryModel instance] update:^{}];
-
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.view addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTable:)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self triggerRefreshAndUpdate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,8 +93,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    NSArray *sections = [self.fetchedResultsController sections];
+    id <NSFetchedResultsSectionInfo> sectionInfo = sections[section];
+    if(section == [sections count]-1)
+    {
+        //last section, add one more item to the last one
+        return [sectionInfo numberOfObjects];
+    }
+    else
+    {
+        return [sectionInfo numberOfObjects];
+    }
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,12 +150,20 @@
     {
         [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
-    UILabel *titleLabel = (UILabel*)[cell viewWithTag:100];
-    titleLabel.text = article.title;
-    UILabel *dateLabel = (UILabel*)[cell viewWithTag:101];
-    dateLabel.text = [df stringFromDate:article.pubDate];
-    UIImageView *thumbView = (UIImageView *)[cell viewWithTag:102];
-    [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
+    UILabel *titleLabel = (UILabel*)[cell viewWithTag:kCellTitileViewTag];
+    titleLabel.text = article ? article.title : @"Loading more articles";
+    
+    UILabel *dateLabel = (UILabel*)[cell viewWithTag:kCellDateViewTag];
+    if(article)
+    {
+        dateLabel.text = [df stringFromDate:article.pubDate];
+    }
+    
+    UIImageView *thumbView = (UIImageView *)[cell viewWithTag:kCellImageViewTag];
+    if(article)
+    {
+        [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
+    }
 }
 
 #pragma mark - Fetched results controller
