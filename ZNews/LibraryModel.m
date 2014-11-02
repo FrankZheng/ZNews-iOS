@@ -57,13 +57,17 @@
     });
 }
 
-- (void)update:(void(^)())completionBlock
+- (void)update:(void(^)())completionBlock before:(NSDate *)beforeDate
 {
-    [[ContentService instance] getArticles:Tech limit:10 success:^(NSArray *articles) {
+    [[ContentService instance] getArticles:Tech
+                                     limit:10
+                                    before:beforeDate
+                                   success:^(NSArray *articles) {
         [self updateNewsList:articles completionBlock:completionBlock];
     } failure:^{
         completionBlock();
     }];
 }
+
 
 @end

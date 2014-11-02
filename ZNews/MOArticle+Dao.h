@@ -19,5 +19,9 @@
 + (MOArticle *)articleWithId:(NSString *)id
       inManagedObjectContext:(NSManagedObjectContext *)moc;
 
+//may need add category parameter later
++(MOArticle *)getOldestArticle:(NSString *)category
+        inManagedObjectContext:(NSManagedObjectContext *)moc;
+
 
 @end

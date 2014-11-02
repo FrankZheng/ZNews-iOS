@@ -11,6 +11,7 @@
 #import "MOArticle.h"
 #import "MOArticle+Dao.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateFormatterUtils.h"
 
 @implementation ContentService
 -(NSString*)getTopicQueryValue:(Topic)topic
@@ -28,6 +29,7 @@
 
 -(void)getArticles:(Topic)topic
              limit:(NSInteger)limit
+            before:(NSDate *)beforeDate
            success:(void(^)(NSArray* articles))successBlock
            failure:(void(^)())failureBlock
 {
@@ -40,6 +42,9 @@
     }
     params[@"limit"] = [@(limit) stringValue];
     params[@"output"] = @"json";
+    if(beforeDate != nil) {
+        params[@"before"] = [DateFormatterUtils stringFromDate:beforeDate];
+    }
     
     [manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject isKindOfClass:[NSArray class]]) {

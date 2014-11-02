@@ -8,20 +8,11 @@
 
 #import "MOArticle+Dao.h"
 #import "ModelUtil.h"
+#import "DateFormatterUtils.h"
 
 static NSString *ENTITY_NAME = @"Article";
-static NSDateFormatter* PUB_DATE_FORMATER = nil;
 
 @implementation MOArticle(Dao)
-
-+ (void)initialize
-{
-    if(self == [MOArticle class]) {
-        PUB_DATE_FORMATER = [[NSDateFormatter alloc] init];
-        [PUB_DATE_FORMATER setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
-    }
-}
-
 
 + (MOArticle *)insertArticleWithDictionary:(NSDictionary *)dict
                     inManagedObjectContext:(NSManagedObjectContext *)moc;
@@ -38,7 +29,7 @@ static NSDateFormatter* PUB_DATE_FORMATER = nil;
         article.publisher = dict[@"publisher"];
         NSString* pubDate = dict[@"pubDate"];
         //parse the date
-        article.pubDate = [PUB_DATE_FORMATER dateFromString:pubDate];
+        article.pubDate = [DateFormatterUtils dateFromString:pubDate];
     }
     return article;
 }
@@ -55,9 +46,15 @@ static NSDateFormatter* PUB_DATE_FORMATER = nil;
     return article;
 }
 
-- (BOOL)save:(NSError **)error
-{
+- (BOOL)save:(NSError **)error {
     return [self.managedObjectContext save:error];
 }
+
++ (MOArticle *)getOldestArticle:(NSString *)category
+         inManagedObjectContext:(NSManagedObjectContext *)moc {
+    
+    return nil;
+}
+
 
 @end

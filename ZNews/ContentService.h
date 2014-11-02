@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, Topic)
 
 - (void)getArticles:(Topic)topic
              limit:(NSInteger)limit
+             before:(NSDate *)beforeDate
            success:(void(^)(NSArray *articles))successBlock
             failure:(void(^)())failureBlock;
 

@@ -13,6 +13,7 @@
 		F6B619C119F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6B619C219F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */; };
+		F6BF1E301A0629EF00E7A5AD /* DateFormatterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF1E2F1A0629EF00E7A5AD /* DateFormatterUtils.m */; };
 		F6EC932F19F4D9E800AF4DEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC932E19F4D9E800AF4DEA /* main.m */; };
 		F6EC933219F4D9E800AF4DEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933119F4D9E800AF4DEA /* AppDelegate.m */; };
 		F6EC933519F4D9E800AF4DEA /* ZNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6EC933319F4D9E800AF4DEA /* ZNews.xcdatamodeld */; };
@@ -54,6 +55,8 @@
 		F6B619C019F5329B00072288 /* LibraryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
 		F6BF1E2B1A04EA6C00E7A5AD /* NSString+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+utility.h"; sourceTree = "<group>"; };
 		F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+utility.m"; sourceTree = "<group>"; };
+		F6BF1E2E1A0629EF00E7A5AD /* DateFormatterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateFormatterUtils.h; sourceTree = "<group>"; };
+		F6BF1E2F1A0629EF00E7A5AD /* DateFormatterUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateFormatterUtils.m; sourceTree = "<group>"; };
 		F6EC932919F4D9E800AF4DEA /* ZNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EC932D19F4D9E800AF4DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6EC932E19F4D9E800AF4DEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 			children = (
 				F6BF1E2B1A04EA6C00E7A5AD /* NSString+utility.h */,
 				F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */,
+				F6BF1E2E1A0629EF00E7A5AD /* DateFormatterUtils.h */,
+				F6BF1E2F1A0629EF00E7A5AD /* DateFormatterUtils.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			files = (
 				F6EC933B19F4D9E800AF4DEA /* NewsViewController.m in Sources */,
 				F6EC936419F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
+				F6BF1E301A0629EF00E7A5AD /* DateFormatterUtils.m in Sources */,
 				F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */,
 				F6EC935A19F4DEA800AF4DEA /* MOArticle.m in Sources */,
 				F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */,

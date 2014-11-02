@@ -12,6 +12,6 @@
 
 +(instancetype)instance;
 
--(void)update:(void(^)())completionBlock;
+-(void)update:(void(^)())completionBlock before:(NSDate *)beforeDate;
 
 @end

@@ -19,7 +19,6 @@
 #define kCellImageViewTag   102
 
 @interface NewsListViewController ()
-@property(nonatomic, strong) UIRefreshControl *topRefreshControl;
 @property(nonatomic, strong) UIRefreshControl *bottomRefreshControl;
 
 @end
@@ -33,7 +32,7 @@
 - (IBAction)refreshTop:(id)sender {
     [[LibraryModel instance] update:^{
         [self.refreshControl endRefreshing];
-    }];
+    } before:nil];
 }
 
 - (void) triggerRefreshAndUpdate {
@@ -48,26 +47,22 @@
     NSArray *sections = [self.fetchedResultsController sections];
     NSInteger section = sections.count - 1;
     id <NSFetchedResultsSectionInfo> sectionInfo = sections[section];
-    NSInteger row = [sectionInfo numberOfObjects]-1;
+    NSInteger row = [sectionInfo numberOfObjects] - 1;
     NSIndexPath  *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-    MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    MOArticle *article = (MOArticle *)[self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    static NSDateFormatter *df = nil;
-    if(df == nil)
-    {
-        df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
-    }
-    NSLog(@"the oldest article pub date is %@", [df stringFromDate:article.pubDate]);
+    [[LibraryModel instance] update:^{
+        [self.bottomRefreshControl endRefreshing];
+    } before:article.pubDate];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //setup top refresh control
-    self.topRefreshControl = [[UIRefreshControl alloc]init];
-    [self.view addSubview:self.topRefreshControl];
-    [self.topRefreshControl addTarget:self
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
                             action:@selector(refreshTop:)
                   forControlEvents:UIControlEventValueChanged];
     
