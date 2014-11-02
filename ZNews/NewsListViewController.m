@@ -12,13 +12,15 @@
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
 #import "ContentService.h"
+#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 
 #define kCellTitileViewTag  100
 #define kCellDateViewTag    101
 #define kCellImageViewTag   102
 
 @interface NewsListViewController ()
-@property(nonatomic, strong) UIRefreshControl *refreshControl;
+@property(nonatomic, strong) UIRefreshControl *topRefreshControl;
+@property(nonatomic, strong) UIRefreshControl *bottomRefreshControl;
 
 @end
 
@@ -28,7 +30,7 @@
     [super awakeFromNib];
 }
 
-- (IBAction)refreshTable:(id)sender {
+- (IBAction)refreshTop:(id)sender {
     [[LibraryModel instance] update:^{
         [self.refreshControl endRefreshing];
     }];
@@ -37,17 +39,44 @@
 - (void) triggerRefreshAndUpdate {
     [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self.refreshControl beginRefreshing];
-    [self refreshTable:self];
+    [self refreshTop:self.refreshControl];
+}
+
+- (IBAction)refreshBottom:(id)sender {
+    NSLog(@"load older News");
+    //get the oldest news
+    NSArray *sections = [self.fetchedResultsController sections];
+    NSInteger section = sections.count - 1;
+    id <NSFetchedResultsSectionInfo> sectionInfo = sections[section];
+    NSInteger row = [sectionInfo numberOfObjects]-1;
+    NSIndexPath  *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+    MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    static NSDateFormatter *df = nil;
+    if(df == nil)
+    {
+        df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+    }
+    NSLog(@"the oldest article pub date is %@", [df stringFromDate:article.pubDate]);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.refreshControl = [[UIRefreshControl alloc]init];
-    [self.view addSubview:self.refreshControl];
-    [self.refreshControl addTarget:self
-                            action:@selector(refreshTable:)
+    //setup top refresh control
+    self.topRefreshControl = [[UIRefreshControl alloc]init];
+    [self.view addSubview:self.topRefreshControl];
+    [self.topRefreshControl addTarget:self
+                            action:@selector(refreshTop:)
                   forControlEvents:UIControlEventValueChanged];
+    
+    //setup bottom refresh control
+    self.bottomRefreshControl = [[UIRefreshControl alloc] init];
+    [self.bottomRefreshControl addTarget:self
+                            action:@selector(refreshBottom:)
+                  forControlEvents:UIControlEventValueChanged];
+    self.tableView.bottomRefreshControl = self.bottomRefreshControl;
     
     [self triggerRefreshAndUpdate];
 }
@@ -95,17 +124,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *sections = [self.fetchedResultsController sections];
     id <NSFetchedResultsSectionInfo> sectionInfo = sections[section];
-    if(section == [sections count]-1)
-    {
-        //last section, add one more item to the last one
-        return [sectionInfo numberOfObjects];
-    }
-    else
-    {
-        return [sectionInfo numberOfObjects];
-    }
-    
-    
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -136,12 +155,14 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     MOArticle *article = (MOArticle*)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     static NSDateFormatter *df = nil;
     if(df == nil)
     {
         df = [[NSDateFormatter alloc] init];
         
     }
+    
     if([[NSCalendar currentCalendar] isDateInToday:article.pubDate])
     {
         [df setDateFormat:@"HH:mm:ss"];
@@ -150,20 +171,18 @@
     {
         [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
+    
     UILabel *titleLabel = (UILabel*)[cell viewWithTag:kCellTitileViewTag];
-    titleLabel.text = article ? article.title : @"Loading more articles";
+    titleLabel.text = article.title;
     
     UILabel *dateLabel = (UILabel*)[cell viewWithTag:kCellDateViewTag];
-    if(article)
-    {
-        dateLabel.text = [df stringFromDate:article.pubDate];
-    }
+    dateLabel.text = [df stringFromDate:article.pubDate];
     
     UIImageView *thumbView = (UIImageView *)[cell viewWithTag:kCellImageViewTag];
-    if(article)
-    {
-        [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
-    }
+    [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
+    
+    //[df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
+    //NSLog(@"pubDate is %@", [df stringFromDate:article.pubDate]);
 }
 
 #pragma mark - Fetched results controller

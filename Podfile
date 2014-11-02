@@ -6,3 +6,6 @@ pod 'AFNetworking', '~> 2.4'
 
 #pod 'SVPullToRefresh'
 
+pod 'CCBottomRefreshControl'
+
+
