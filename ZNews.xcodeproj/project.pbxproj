@@ -10,6 +10,7 @@
 		6FC6C400D3FFE9929C2397F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3B122CA48CA36789EBBEF3 /* libPods.a */; };
 		F62CC01D1A032FF600B10AD8 /* MOArticleDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CC01C1A032FF600B10AD8 /* MOArticleDetail.m */; };
 		F62CC0201A0332ED00B10AD8 /* MOArticleDetail+Dao.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */; };
+		F69B2CC01A07225800B79FDB /* NSArray+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B2CBF1A07225800B79FDB /* NSArray+utility.m */; };
 		F6B619C119F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6B619C219F5329B00072288 /* LibraryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B619C019F5329B00072288 /* LibraryModel.m */; };
 		F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */; };
@@ -51,6 +52,8 @@
 		F62CC01C1A032FF600B10AD8 /* MOArticleDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOArticleDetail.m; sourceTree = "<group>"; };
 		F62CC01E1A0332ED00B10AD8 /* MOArticleDetail+Dao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MOArticleDetail+Dao.h"; sourceTree = "<group>"; };
 		F62CC01F1A0332ED00B10AD8 /* MOArticleDetail+Dao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MOArticleDetail+Dao.m"; sourceTree = "<group>"; };
+		F69B2CBE1A07225800B79FDB /* NSArray+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+utility.h"; sourceTree = "<group>"; };
+		F69B2CBF1A07225800B79FDB /* NSArray+utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+utility.m"; sourceTree = "<group>"; };
 		F6B619BF19F5329B00072288 /* LibraryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryModel.h; sourceTree = "<group>"; };
 		F6B619C019F5329B00072288 /* LibraryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryModel.m; sourceTree = "<group>"; };
 		F6BF1E2B1A04EA6C00E7A5AD /* NSString+utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+utility.h"; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				F6BF1E2C1A04EA6C00E7A5AD /* NSString+utility.m */,
 				F6BF1E2E1A0629EF00E7A5AD /* DateFormatterUtils.h */,
 				F6BF1E2F1A0629EF00E7A5AD /* DateFormatterUtils.m */,
+				F69B2CBE1A07225800B79FDB /* NSArray+utility.h */,
+				F69B2CBF1A07225800B79FDB /* NSArray+utility.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				F6EC933B19F4D9E800AF4DEA /* NewsViewController.m in Sources */,
 				F6EC936419F4E41800AF4DEA /* MOArticle+Dao.m in Sources */,
 				F6BF1E301A0629EF00E7A5AD /* DateFormatterUtils.m in Sources */,
+				F69B2CC01A07225800B79FDB /* NSArray+utility.m in Sources */,
 				F6EC933819F4D9E800AF4DEA /* NewsListViewController.m in Sources */,
 				F6EC935A19F4DEA800AF4DEA /* MOArticle.m in Sources */,
 				F6BF1E2D1A04EA6C00E7A5AD /* NSString+utility.m in Sources */,

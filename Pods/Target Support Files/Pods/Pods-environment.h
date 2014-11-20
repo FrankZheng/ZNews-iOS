@@ -48,39 +48,3 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 4
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
-// CCBottomRefreshControl
-#define COCOAPODS_POD_AVAILABLE_CCBottomRefreshControl
-#define COCOAPODS_VERSION_MAJOR_CCBottomRefreshControl 0
-#define COCOAPODS_VERSION_MINOR_CCBottomRefreshControl 3
-#define COCOAPODS_VERSION_PATCH_CCBottomRefreshControl 0
-
-// ReactiveCocoa
-#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
-#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2
-#define COCOAPODS_VERSION_MINOR_ReactiveCocoa 3
-#define COCOAPODS_VERSION_PATCH_ReactiveCocoa 1
-
-// ReactiveCocoa/Core
-#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_Core
-#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_Core 2
-#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_Core 3
-#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_Core 1
-
-// ReactiveCocoa/UI
-#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_UI
-#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_UI 2
-#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_UI 3
-#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_UI 1
-
-// ReactiveCocoa/no-arc
-#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_no_arc
-#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_no_arc 2
-#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 3
-#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 1
-
-// UIView+TKGeometry
-#define COCOAPODS_POD_AVAILABLE_UIView_TKGeometry
-#define COCOAPODS_VERSION_MAJOR_UIView_TKGeometry 0
-#define COCOAPODS_VERSION_MINOR_UIView_TKGeometry 2
-#define COCOAPODS_VERSION_PATCH_UIView_TKGeometry 0
-

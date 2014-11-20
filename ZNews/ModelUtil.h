@@ -24,6 +24,25 @@
 
 #import <CoreData/CoreData.h>
 
+@interface ModelUtil : NSObject
+@end
+
+#if 0
+-(NSManagedObjectContext *) defaultManagedObjectContext;
+
+-(NSManagedObjectContext *) createBackgroundContext;
+
+-(BOOL)commitDefaultMOC;
+
+-(void)rollbackDefaultMOC;
+
+-(void)deleteManagedObjectFromDefaultMOC:(NSManagedObject *)managedObject;
+
+-(NSArray *)fetchManagedObjects:(NSString *)entityName
+                      predicate:(NSPredicate *)predicate
+                 sortDescriptor:(NSSortDescriptor *)sortDescriptor
+         inManagedObjectContext:(NSManagedObjectContext *)moc;
+#endif
 
 NSManagedObjectContext *
 defaultManagedObjectContext(void);

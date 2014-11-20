@@ -12,7 +12,7 @@
 #import "MOArticle+Dao.h"
 #import "LibraryModel.h"
 #import "ContentService.h"
-#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
+//#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
 
 #define kCellTitileViewTag  100
 #define kCellDateViewTag    101
@@ -41,6 +41,8 @@
     [self refreshTop:self.refreshControl];
 }
 
+#if 0
+
 - (IBAction)refreshBottom:(id)sender {
     NSLog(@"load older News");
     //get the oldest news
@@ -50,12 +52,13 @@
     NSInteger row = [sectionInfo numberOfObjects] - 1;
     NSIndexPath  *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
     MOArticle *article = (MOArticle *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+ 
     [[LibraryModel instance] update:^{
         [self.bottomRefreshControl endRefreshing];
     } before:article.pubDate];
-    
+
 }
+#endif
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,12 +69,14 @@
                             action:@selector(refreshTop:)
                   forControlEvents:UIControlEventValueChanged];
     
+#if 0
     //setup bottom refresh control
     self.bottomRefreshControl = [[UIRefreshControl alloc] init];
     [self.bottomRefreshControl addTarget:self
                             action:@selector(refreshBottom:)
                   forControlEvents:UIControlEventValueChanged];
     self.tableView.bottomRefreshControl = self.bottomRefreshControl;
+#endif
     
     [self triggerRefreshAndUpdate];
 }
