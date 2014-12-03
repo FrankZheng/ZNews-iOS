@@ -5,6 +5,11 @@ ZNews-iOS （最新闻 iOS客户端）
 一个新闻客户端，实现了新闻列表和新闻内容的浏览。
 后台从谷歌新闻抓取RSS，解析，并提取正文内容，保存到后台数据库中。
 
+预览
+----------
+![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/1.png "github")
+![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/2.png "github")
+
 技术架构
 ---------
 后台搭建在heroku上，目前有三个应用
