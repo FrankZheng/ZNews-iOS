@@ -5,10 +5,6 @@ ZNews-iOS （最新闻 iOS客户端）
 一个新闻客户端，实现了新闻列表和新闻内容的浏览。
 后台从谷歌新闻抓取RSS，解析，并提取正文内容，保存到后台数据库中。
 
-预览
-----------
-![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/1.png "github")
-![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/2.png "github")
 
 技术架构
 ---------
@@ -18,8 +14,11 @@ ZNews-iOS （最新闻 iOS客户端）
 * xnewsextractor 一个后台worker，定时去数据库中解析源新闻网页，提取正文并保存到数据库中。
 数据库使用mongodb，使用的mongolab提供的云服务
 
-数据后台API
----------
+预览
+----------
+![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/1.png "github")
+![github](https://raw.githubusercontent.com/FrankZheng/ZNews-iOS/master/screenshots/2.png "github")
+
 
 
 
