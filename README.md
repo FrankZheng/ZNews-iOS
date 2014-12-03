@@ -9,7 +9,7 @@ ZNews-iOS （最新闻 iOS客户端）
 
 后台技术架构
 ---------
-后台搭建在heroku上，目前有三个应用
+后台搭建在heroku上，目前有三个模块
 * xnewsreader    一个web服务，对客户端提供json格式的内容。
 * xnewscrawler   一个后台worker，定时去谷歌新闻抓取RSS，解析并保存到数据库中
 * xnewsextractor 一个后台worker，定时去数据库中解析源新闻网页，提取正文并保存到数据库中。
