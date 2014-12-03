@@ -24,6 +24,15 @@ http://xnewsreader.herokuapp.com/articles?lang=en&limit=50&topic=t&before=2014-1
 * topic 用来指定新闻的分类，默认为焦点新闻
 * before 用来指定时间，可以取回某个时间点之前的新闻
 
+客户端app架构
+----------
+存储部分使用 Core Data
+网络部分使用 AFNetworking2.0
+
+将来考虑实现的功能
+-----------
+支持多栏目新闻浏览和切换
+代码整理和优化
 
 预览
 ----------
