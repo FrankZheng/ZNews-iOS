@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NewsViewController.h"
 #import "NewsListViewController.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -19,9 +20,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:
+     ^(AFNetworkReachabilityStatus status)
+     {
+         NSLog(@"network status is %d", status);
+     }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+
+    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     NewsListViewController *controller = (NewsListViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    
+    
     return YES;
 }
 

@@ -13,10 +13,12 @@
 #import "LibraryModel.h"
 #import "ContentService.h"
 //#import <CCBottomRefreshControl/UIScrollView+BottomRefreshControl.h>
+#import <AFNetworking.h>
 
 #define kCellTitileViewTag  100
 #define kCellDateViewTag    101
 #define kCellImageViewTag   102
+#define kCellSourceViewTag   103
 
 @interface NewsListViewController ()
 @property(nonatomic, strong) UIRefreshControl *bottomRefreshControl;
@@ -35,7 +37,14 @@
     } before:nil];
 }
 
+- (BOOL) connectedToNetwork
+{
+    return [[AFNetworkReachabilityManager sharedManager] isReachable];
+}
+
 - (void) triggerRefreshAndUpdate {
+    
+    NSLog(@"connected to network: %d", [self connectedToNetwork]);
     [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self.refreshControl beginRefreshing];
     [self refreshTop:self.refreshControl];
@@ -78,7 +87,9 @@
     self.tableView.bottomRefreshControl = self.bottomRefreshControl;
 #endif
     
-    [self triggerRefreshAndUpdate];
+    [self performSelector:@selector(triggerRefreshAndUpdate) withObject:nil afterDelay:0.001];
+    //[self triggerRefreshAndUpdate];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -180,6 +191,9 @@
     
     UIImageView *thumbView = (UIImageView *)[cell viewWithTag:kCellImageViewTag];
     [[ContentService instance] loadArticleThumbnail:article toImageView:thumbView];
+    
+    UILabel *sourceLabel = (UILabel*)[cell viewWithTag:kCellSourceViewTag];
+    sourceLabel.text = article.publisher;
     
     //[df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"];
     //NSLog(@"pubDate is %@", [df stringFromDate:article.pubDate]);

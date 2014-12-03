@@ -65,6 +65,8 @@
                     NSLog(@"Failed to save articles, %@, %@", error, error.localizedDescription);
                 }
                 NSLog(@"insert %d new articles", added);
+            } else {
+                NSLog(@"no new articles");
             }
         }];
         
