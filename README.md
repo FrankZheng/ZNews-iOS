@@ -17,12 +17,13 @@ ZNews-iOS （最新闻 iOS客户端）
 
 后台服务API
 ----------
-http://xnewsreader.herokuapp.com/articles?lang=en&limit=50&topic=t&before=2014-11-02T00:47:45.000
+http://xnewsreader.herokuapp.com/articles?lang=en&limit=50&topic=t&before=2014-11-02T00:47:45.000&output=json
 * 现在默认抓取中文的焦点和科技新闻，英文的焦点和科技新闻。
-* lang [zh | en] 默认为zh 
+* lang  [zh | en] 默认为zh 
 * limit 用来指定返回多少条新闻，默认为之前一天内的所有新闻
 * topic 用来指定新闻的分类，默认为焦点新闻
 * before 用来指定时间，可以取回某个时间点之前的新闻
+* output [html|json] 用来指定输出格式，默认为html
 
 客户端app架构
 ----------
