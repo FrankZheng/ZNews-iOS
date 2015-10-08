@@ -31,7 +31,7 @@ The Client App technolgies.
 Todo list:
 -----------
 * Support multiple topics.
-* Code cleanup.
+* Code cleanup and refactoring.
 
 Preview
 ----------
