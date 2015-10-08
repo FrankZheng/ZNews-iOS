@@ -2,7 +2,7 @@ ZNews-iOS (A Google News iOS Reader App)
 =========
 About
 ---------
-A news reader app, has a news list and news detail screen.
+A news reader app, has a news list and news detail screen, The news source is from Google news.
 The backend will fetch RSS feed from google news periodically, do parsing and abstracting the news real content, then save to the database. 
 
 
@@ -18,7 +18,7 @@ The backend API
 ----------
 http://xnewsreader.herokuapp.com/articles?lang=en&limit=50&topic=t&before=2015-10-04T00:47:45.000&output=json
 * lang [zh | en] -- language, default is zh. 
-* limit -- specified how many news will return, default is all the news by today.
+* limit -- specified how much news will return, default is all the news by today.
 * topic [t] -- specified which topic of the return news, default is the top news.
 * before -- specified the date before.
 * output [html|json] -- specified output format, default is html.
