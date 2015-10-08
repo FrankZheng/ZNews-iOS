@@ -1,19 +1,21 @@
-ZNews-iOS （最新闻 iOS客户端）
+ZNews-iOS (A Google News iOS Reader App)
 =========
-关于
+About
 ---------
 一个新闻客户端，实现了新闻列表和新闻内容的浏览。
+A news reader app, has a news list and news detail screen.
 后台从谷歌新闻抓取RSS，解析，并提取正文内容，保存到后台数据库中。
-目前还属于自娱自乐阶段，代码没有经过好的规划和整理。
+The backend will fetch RSS feed from google news periodically, do parsing and abstracting the content part, then save to the database. 
 
 
-后台技术架构
+The backend architecture & technologies
 ---------
 后台搭建在heroku上，目前有三个模块
-* xnewsreader    一个web服务，对客户端提供json格式的内容。
-* xnewscrawler   一个后台worker，定时去谷歌新闻抓取RSS，解析并保存到数据库中
-* xnewsextractor 一个后台worker，定时去数据库中解析源新闻网页，提取正文并保存到数据库中。
-* 数据库使用mongolab提供的mongodb服务。
+The backend is hosted on Heroku, include 3 modules:
+* xnewsreader    一个web服务，对客户端提供json格式的内容。 A web server, providing APIs for client app, With Node.js and Express.
+* xnewscrawler   一个后台worker，定时去谷歌新闻抓取RSS，解析并保存到数据库中。A background worker, fetch RSS feeds and save to database periodically, with Node.js.
+* xnewsextractor 一个后台worker，定时去数据库中解析源新闻网页，提取正文并保存到数据库中。A background worker, abstracting the real content of the news and save to database periodically, with Python.
+* 数据库使用mongolab提供的mongodb服务。The database is a mongodb instance hosted on mongolab.
 
 后台服务API
 ----------
