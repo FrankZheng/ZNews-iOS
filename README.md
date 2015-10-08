@@ -1,8 +1,8 @@
-ZNews-iOS (A Google News iOS Reader App)
+ZNews-iOS (A Google News Reader App for iOS)
 =========
 About
 ---------
-A news reader app, has a news list and news detail screen, The news source is from Google news.
+A news reader app, has a news list and news detail screen, the news source is from Google news.
 The backend will fetch RSS feed from google news periodically, do parsing and abstracting the news real content, then save to the database. 
 
 
